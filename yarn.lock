@@ -1362,6 +1362,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"borsh@npm:^0.6.0":
+  version: 0.6.0
+  resolution: "borsh@npm:0.6.0"
+  dependencies:
+    bn.js: ^5.2.0
+    bs58: ^4.0.0
+    text-encoding-utf-8: ^1.0.2
+  checksum: 250fd3f7dbacfc28731b3354718ccfe0040263774d65035047565ce221dd5a7c24d435695acbd31202a2af88a0422c8662c1d107ba9e3eda2ac6ce8907abed57
+  languageName: node
+  linkType: hard
+
 "brace-expansion@npm:^1.1.7":
   version: 1.1.11
   resolution: "brace-expansion@npm:1.1.11"
@@ -1910,14 +1921,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"error-polyfill@npm:^0.1.2":
-  version: 0.1.2
-  resolution: "error-polyfill@npm:0.1.2"
+"error-polyfill@npm:^0.1.3":
+  version: 0.1.3
+  resolution: "error-polyfill@npm:0.1.3"
   dependencies:
     capability: ^0.2.5
     o3: ^1.0.3
-    u3: ^0.1.0
-  checksum: 3ecd66996c901a16978b0321f21879d469f2531ef8f25a112bc0ea629e576ce52ce8ff5f47dfea2a3f44b3d2b8e8f009e68b37b80724d496852aaba4866b0ca2
+    u3: ^0.1.1
+  checksum: b539b2c7cd9cc15811135e48d7e8dfce12058eb2b3401a3472b22b1acf8e9fba9a7e54075c1eb1340445fb52d21a871cd46b784cdd5168629cab70a2c93e12d1
   languageName: node
   linkType: hard
 
@@ -3492,22 +3503,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"near-api-js@near/near-api-js#f3a05fe52340d07a2a96f862c112e6b5885982f5":
-  version: 0.42.0
-  resolution: "near-api-js@https://github.com/near/near-api-js.git#commit=f3a05fe52340d07a2a96f862c112e6b5885982f5"
+"near-api-js@npm:^0.43.1":
+  version: 0.43.1
+  resolution: "near-api-js@npm:0.43.1"
   dependencies:
     bn.js: 5.2.0
-    borsh: ^0.5.0
+    borsh: ^0.6.0
     bs58: ^4.0.0
     depd: ^2.0.0
-    error-polyfill: ^0.1.2
+    error-polyfill: ^0.1.3
     http-errors: ^1.7.2
     js-sha256: ^0.9.0
     mustache: ^4.0.0
     node-fetch: ^2.6.1
     text-encoding-utf-8: ^1.0.2
     tweetnacl: ^1.0.1
-  checksum: 50228120e2c7485516d666d7fd3ce39ccd12a7635d69653e743e1013307be649e2045f934204b59eff5872e01cea1af2fcde6464f7c0f90bb7afa3d2425855fd
+  checksum: 4341e1d08adfc5234a0b6cc4797332f1582957ad8a24f35dfe29150ba80fc7fc02577ff3b1b038966e0b2903ad018b647d24ff414bf38eaecefecd01def9858f
   languageName: node
   linkType: hard
 
@@ -4049,7 +4060,7 @@ __metadata:
     ethers: ^5.4.6
     globby: ^10
     mocha: ^5
-    near-api-js: "near/near-api-js#f3a05fe52340d07a2a96f862c112e6b5885982f5"
+    near-api-js: ^0.43.1
     nyc: ^14
     postgresql-client: ^1.18.3
     prettier: ^2.3.2
@@ -4921,10 +4932,10 @@ typescript@^3.3:
   languageName: node
   linkType: hard
 
-"u3@npm:^0.1.0":
-  version: 0.1.0
-  resolution: "u3@npm:0.1.0"
-  checksum: 54476fdb5cea6b89e0ce2d169bffe550ef2ed857914d5ae176e95bbe39098337bf09adae8276033b5d15e90a504de50b8ad1e2685b7e7754f2e78bf9671bf8f8
+"u3@npm:^0.1.1":
+  version: 0.1.1
+  resolution: "u3@npm:0.1.1"
+  checksum: 308cafb8fa871a9255777ccba61d8f977e58a5facf5ccc158df6f29f72a0bf59b8c87384dc3ce7ce22b0dc0082a91cc09d06bd1cc0b5ae290a5668805b5e9d67
   languageName: node
   linkType: hard
 
