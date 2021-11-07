@@ -21,7 +21,7 @@ $ npm install -g rainbow-bridge
 $ bridge COMMAND
 running command...
 $ bridge (-v|--version|version)
-rainbow-bridge/0.0.10 darwin-x64 node-v14.16.1
+rainbow-bridge/0.0.10 linux-x64 node-v16.13.0
 $ bridge --help [COMMAND]
 USAGE
   $ bridge COMMAND
@@ -41,6 +41,10 @@ USAGE
 * [`bridge help [COMMAND]`](#bridge-help-command)
 * [`bridge list`](#bridge-list)
 * [`bridge monitor`](#bridge-monitor)
+* [`bridge pause:near:all`](#bridge-pausenearall)
+* [`bridge pause:near:client`](#bridge-pausenearclient)
+* [`bridge pause:near:factory`](#bridge-pausenearfactory)
+* [`bridge pause:near:prover`](#bridge-pausenearprover)
 * [`bridge tokens:list`](#bridge-tokenslist)
 * [`bridge tokens:metadata TOKENADDRESS`](#bridge-tokensmetadata-tokenaddress)
 * [`bridge tokens:set_icon TOKENS`](#bridge-tokensset_icon-tokens)
@@ -48,6 +52,10 @@ USAGE
 * [`bridge tools:deploy-contracts TOKENS CONTRACT`](#bridge-toolsdeploy-contracts-tokens-contract)
 * [`bridge tools:generate-config FILE`](#bridge-toolsgenerate-config-file)
 * [`bridge tools:migrate-icons TOKENS CONTRACT`](#bridge-toolsmigrate-icons-tokens-contract)
+* [`bridge unpause:near:all`](#bridge-unpausenearall)
+* [`bridge unpause:near:client`](#bridge-unpausenearclient)
+* [`bridge unpause:near:factory`](#bridge-unpausenearfactory)
+* [`bridge unpause:near:prover`](#bridge-unpausenearprover)
 * [`bridge use BRIDGE_ID`](#bridge-use-bridge_id)
 
 ## `bridge eth:deploy CONTRACTPATH`
@@ -186,6 +194,72 @@ OPTIONS
 
 _See code: [src/commands/monitor.ts](https://github.com/aurora-is-near/bridge-cli/blob/v0.0.10/src/commands/monitor.ts)_
 
+## `bridge pause:near:all`
+
+Pause all near contracts
+
+```
+USAGE
+  $ bridge pause near all
+
+OPTIONS
+  -h, --help  show CLI help
+```
+
+_See code: [src/commands/pause/near/all.ts](https://github.com/aurora-is-near/bridge-cli/blob/v0.0.10/src/commands/pause/near/all.ts)_
+
+## `bridge pause:near:client`
+
+Pause eth client
+
+```
+USAGE
+  $ bridge pause near client
+
+OPTIONS
+  -a, --all             Pause all actions
+  -h, --addBlockHeader  Pause add block header
+  -h, --help            show CLI help
+  -s, --status          Show the current paused status of the contract.
+```
+
+_See code: [src/commands/pause/near/client.ts](https://github.com/aurora-is-near/bridge-cli/blob/v0.0.10/src/commands/pause/near/client.ts)_
+
+## `bridge pause:near:factory`
+
+Pause factory
+
+```
+USAGE
+  $ bridge pause near factory
+
+OPTIONS
+  -a, --all      Pause all actions
+  -d, --deposit  Pause deposits
+  -h, --help     show CLI help
+  -s, --status   Show the current paused status of the contract.
+  -t, --deploy   Pause deploy token
+```
+
+_See code: [src/commands/pause/near/factory.ts](https://github.com/aurora-is-near/bridge-cli/blob/v0.0.10/src/commands/pause/near/factory.ts)_
+
+## `bridge pause:near:prover`
+
+Pause eth prover
+
+```
+USAGE
+  $ bridge pause near prover
+
+OPTIONS
+  -a, --all             Pause all actions
+  -b, --addBlockHeader  Pause verify
+  -h, --help            show CLI help
+  -s, --status          Show the current paused status of the contract.
+```
+
+_See code: [src/commands/pause/near/prover.ts](https://github.com/aurora-is-near/bridge-cli/blob/v0.0.10/src/commands/pause/near/prover.ts)_
+
 ## `bridge tokens:list`
 
 List all tokens deployed
@@ -296,6 +370,72 @@ OPTIONS
 ```
 
 _See code: [src/commands/tools/migrate-icons.ts](https://github.com/aurora-is-near/bridge-cli/blob/v0.0.10/src/commands/tools/migrate-icons.ts)_
+
+## `bridge unpause:near:all`
+
+Unpause all near contracts
+
+```
+USAGE
+  $ bridge unpause near all
+
+OPTIONS
+  -h, --help  show CLI help
+```
+
+_See code: [src/commands/unpause/near/all.ts](https://github.com/aurora-is-near/bridge-cli/blob/v0.0.10/src/commands/unpause/near/all.ts)_
+
+## `bridge unpause:near:client`
+
+Unpause client
+
+```
+USAGE
+  $ bridge unpause near client
+
+OPTIONS
+  -a, --all             Pause all actions
+  -h, --addBlockHeader  Pause add block header
+  -h, --help            show CLI help
+  -s, --status          Show the current paused status of the contract.
+```
+
+_See code: [src/commands/unpause/near/client.ts](https://github.com/aurora-is-near/bridge-cli/blob/v0.0.10/src/commands/unpause/near/client.ts)_
+
+## `bridge unpause:near:factory`
+
+Unpause factory
+
+```
+USAGE
+  $ bridge unpause near factory
+
+OPTIONS
+  -a, --all      Pause all actions
+  -d, --deposit  Pause deposits
+  -h, --help     show CLI help
+  -s, --status   Show the current paused status of the contract.
+  -t, --deploy   Pause deploy token
+```
+
+_See code: [src/commands/unpause/near/factory.ts](https://github.com/aurora-is-near/bridge-cli/blob/v0.0.10/src/commands/unpause/near/factory.ts)_
+
+## `bridge unpause:near:prover`
+
+Unpause prover
+
+```
+USAGE
+  $ bridge unpause near prover
+
+OPTIONS
+  -a, --all             Pause all actions
+  -b, --addBlockHeader  Pause verify
+  -h, --help            show CLI help
+  -s, --status          Show the current paused status of the contract.
+```
+
+_See code: [src/commands/unpause/near/prover.ts](https://github.com/aurora-is-near/bridge-cli/blob/v0.0.10/src/commands/unpause/near/prover.ts)_
 
 ## `bridge use BRIDGE_ID`
 
