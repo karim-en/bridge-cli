@@ -29,7 +29,8 @@ contracts:
         prover: "0xb3df48b0ea3e91b43226fb3c5eb335b7e3d76faa"
         # Contract that emits metadata from ERC20 Tokens
         metadata_emitter: "0x6745a345385f973b30c3bfb1cd74cd79f0f8f9fe"
-
+        # Erc20 locker
+        erc20_locker: "0xb48e6441524f261e141bc766a7ebd54b19ca7465"
     near:
         # Ethereum Light Client implementation in NEAR
         client: t5.client.ropsten.testnet

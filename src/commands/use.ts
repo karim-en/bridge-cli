@@ -1,11 +1,10 @@
 import { BridgeNoConfigCommand } from '../base';
-import fetch from 'cross-fetch';
 import { CONFIG_PATH } from '../config';
 import * as fs from 'fs';
 import { join } from 'path';
+import { readFileSync } from 'fs';
 
-const CONFIG_URL_PREFIX =
-  'https://raw.githubusercontent.com/aurora-is-near/bridge-cli/master/configuration/';
+const CONFIG_FILE_PREFIX = 'configuration/';
 
 export default class Use extends BridgeNoConfigCommand {
   static description = 'Select bridge to be used';
@@ -21,10 +20,10 @@ export default class Use extends BridgeNoConfigCommand {
 
   async run(): Promise<void> {
     if (!fs.existsSync(join(CONFIG_PATH, this.args.bridge_id, 'config.yml'))) {
-      const response = await fetch(
-        CONFIG_URL_PREFIX + this.args.bridge_id + '.yml'
+      const response = await readFileSync(
+        CONFIG_FILE_PREFIX + this.args.bridge_id + '.yml'
       );
-      const data = await response.text();
+      const data = response.toString();
 
       await fs.promises.mkdir(join(CONFIG_PATH, this.args.bridge_id), {
         recursive: true

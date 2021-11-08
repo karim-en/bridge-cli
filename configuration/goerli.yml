@@ -27,6 +27,8 @@ contracts:
         client: "0x4018820687bfbf222fabd2ee014f6dc325c64084"
         # Prover for receipts created in NEAR
         prover: "0xb3df48b0ea3e91b43226fb3c5eb335b7e3d76faa"
+        # Erc20 locker
+        erc20_locker: "0xc115851ca60aed2ccc6ee3d5343f590834e4a3ab"
 
     near:
         # Ethereum Light Client implementation in NEAR

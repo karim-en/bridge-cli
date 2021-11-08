@@ -1,10 +1,10 @@
 import { BridgeCommand } from '../../../base';
 import { flags } from '@oclif/command';
-import { NearAdminControlled } from '../../../emergency-utils/near-admin-controlled';
-import { NearProverPausedStatus } from '../../../emergency-utils/near-admin-controlled-status';
+import { EthAdminControlled } from '../../../emergency-utils/eth-admin-controlled';
+import { EthProverPausedStatus } from '../../../emergency-utils/eth-admin-controlled-status';
 
 export default class PauseProver extends BridgeCommand {
-  static description = 'Pause eth prover on NEAR';
+  static description = 'Pause prover on Eth';
 
   static flags = {
     ...BridgeCommand.flags,
@@ -14,8 +14,8 @@ export default class PauseProver extends BridgeCommand {
       description: 'Show the current paused status of the contract.'
     }),
 
-    addBlockHeader: flags.boolean({
-      char: 'b',
+    verify: flags.boolean({
+      char: 'v',
       description: 'Pause verify'
     }),
 
@@ -28,19 +28,18 @@ export default class PauseProver extends BridgeCommand {
   static args = [...BridgeCommand.args];
 
   async run(isPause = true): Promise<void> {
-    const near = await this.conf.NEAR;
-    const contract = new NearAdminControlled(
-      await near.account(this.conf.contracts.near.prover)
+    const contract = await EthAdminControlled.create(
+      this.conf.contracts.ethereum.prover,
+      await this.conf.ethereumSigner()
     );
-    const status = new NearProverPausedStatus(await contract.getPaused());
-
+    const status = new EthProverPausedStatus(await contract.getPaused());
     this.logger.info('Verify paused:', status.verify);
 
     if (this.flags.status) {
       return;
     }
 
-    if (this.flags.addBlockHeader) {
+    if (this.flags.verify) {
       status.verify = isPause;
     }
 
@@ -48,7 +47,8 @@ export default class PauseProver extends BridgeCommand {
       status.pauseAll(isPause);
     }
 
-    const res = await contract.setPaused(status.toMask());
-    this.logger.info(this.conf.nearExplorer.transaction(res.transaction.hash));
+    const tx = await contract.setPaused(status.toMask());
+    await tx.wait();
+    this.logger.info(this.conf.etherscan.transaction(tx.hash));
   }
 }

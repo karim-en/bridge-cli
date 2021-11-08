@@ -1,7 +1,7 @@
-import PauseClient from '../../pause/near/client';
+import PauseClient from '../../pause/eth/client';
 
 export default class Unpause extends PauseClient {
-  static description = 'Unpause eth client on NEAR';
+  static description = 'Unpause Near on Eth client';
 
   static flags = {
     ...PauseClient.flags

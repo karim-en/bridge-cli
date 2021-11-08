@@ -1,10 +1,10 @@
 import { BridgeCommand } from '../../../base';
 import { flags } from '@oclif/command';
-import { AdminControlled } from '../../../emergency-utils/near-admin-controlled';
-import { EthClientPausedStatus } from '../../../emergency-utils/near-admin-controlled-status';
+import { NearAdminControlled } from '../../../emergency-utils/near-admin-controlled';
+import { NearClientPausedStatus } from '../../../emergency-utils/near-admin-controlled-status';
 
 export default class PauseClient extends BridgeCommand {
-  static description = 'Pause eth client';
+  static description = 'Pause eth client on NEAR';
 
   static flags = {
     ...BridgeCommand.flags,
@@ -29,10 +29,10 @@ export default class PauseClient extends BridgeCommand {
 
   async run(isPause = true): Promise<void> {
     const near = await this.conf.NEAR;
-    const contract = new AdminControlled(
+    const contract = new NearAdminControlled(
       await near.account(this.conf.contracts.near.client)
     );
-    const status = new EthClientPausedStatus(await contract.getPaused());
+    const status = new NearClientPausedStatus(await contract.getPaused());
 
     this.logger.info('Add block header paused:', status.addBlockHeader);
 

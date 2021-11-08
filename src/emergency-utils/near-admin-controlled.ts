@@ -20,7 +20,7 @@ const u128Schema = new Map([
   [U128, { kind: 'struct', fields: [['value', 'u128']] }]
 ]);
 
-export class AdminControlled {
+export class NearAdminControlled {
   account: Account;
 
   constructor(account: Account) {

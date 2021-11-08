@@ -23,7 +23,7 @@ export class FactoryPausedStatus implements IPausedStatus {
   }
 }
 
-export class EthClientPausedStatus implements IPausedStatus {
+export class NearClientPausedStatus implements IPausedStatus {
   addBlockHeader: boolean;
 
   constructor(mask: number) {
@@ -39,7 +39,7 @@ export class EthClientPausedStatus implements IPausedStatus {
   }
 }
 
-export class EthProverPausedStatus implements IPausedStatus {
+export class NearProverPausedStatus implements IPausedStatus {
   verify: boolean;
 
   constructor(mask: number) {

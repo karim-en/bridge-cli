@@ -1,6 +1,6 @@
 import { BridgeCommand } from '../../../base';
 import { flags } from '@oclif/command';
-import { AdminControlled } from '../../../emergency-utils/near-admin-controlled';
+import { NearAdminControlled } from '../../../emergency-utils/near-admin-controlled';
 import { FactoryPausedStatus } from '../../../emergency-utils/near-admin-controlled-status';
 
 export default class PauseFactory extends BridgeCommand {
@@ -34,7 +34,7 @@ export default class PauseFactory extends BridgeCommand {
 
   async run(isPause = true): Promise<void> {
     const near = await this.conf.NEAR;
-    const contract = new AdminControlled(
+    const contract = new NearAdminControlled(
       await near.account(this.conf.contracts.near.tokenFactory)
     );
     const status = new FactoryPausedStatus(await contract.getPaused());
