@@ -4,7 +4,7 @@ import { EthAdminControlled } from '../../../emergency-utils/eth-admin-controlle
 import { EthClientPausedStatus } from '../../../emergency-utils/eth-admin-controlled-status';
 
 export default class PauseClient extends BridgeCommand {
-  static description = 'Pause Near on Eth client';
+  static description = 'Pause NEAR light-client on Ethereum';
 
   static flags = {
     ...BridgeCommand.flags,
@@ -15,27 +15,22 @@ export default class PauseClient extends BridgeCommand {
     }),
 
     deposit: flags.boolean({
-      char: 'd',
       description: 'Pause deposit'
     }),
 
     withdraw: flags.boolean({
-      char: 'w',
       description: 'Pause withdraw'
     }),
 
     addBlock: flags.boolean({
-      char: 'b',
       description: 'Pause addBlock'
     }),
 
     challenge: flags.boolean({
-      char: 'c',
       description: 'Pause challenge'
     }),
 
     verify: flags.boolean({
-      char: 'v',
       description: 'Pause verify'
     }),
 

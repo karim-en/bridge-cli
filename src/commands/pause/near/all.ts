@@ -8,7 +8,8 @@ import {
 } from '../../../emergency-utils/near-admin-controlled-status';
 
 export default class PauseAll extends BridgeCommand {
-  static description = 'Pause all near contracts';
+  static description =
+    'Pause all Bridge contracts on Near: EthereumOnNear client, EthProver, NearTokenFactory';
 
   static flags = {
     ...BridgeCommand.flags

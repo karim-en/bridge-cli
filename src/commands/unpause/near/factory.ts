@@ -1,7 +1,7 @@
 import PauseFactory from '../../pause/near/factory';
 
 export default class Unpause extends PauseFactory {
-  static description = 'Unpause factory';
+  static description = 'Unpause token factory on Near';
 
   static flags = {
     ...PauseFactory.flags

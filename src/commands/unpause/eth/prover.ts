@@ -1,7 +1,7 @@
 import PauseProver from '../../pause/eth/prover';
 
 export default class Unpause extends PauseProver {
-  static description = 'Unpause prover on Eth';
+  static description = 'Unpause prover on Ethereum';
 
   static flags = {
     ...PauseProver.flags

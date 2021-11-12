@@ -4,7 +4,7 @@ import { EthAdminControlled } from '../../../emergency-utils/eth-admin-controlle
 import { EthProverPausedStatus } from '../../../emergency-utils/eth-admin-controlled-status';
 
 export default class PauseProver extends BridgeCommand {
-  static description = 'Pause prover on Eth';
+  static description = 'Pause prover on Ethereum';
 
   static flags = {
     ...BridgeCommand.flags,
@@ -15,7 +15,6 @@ export default class PauseProver extends BridgeCommand {
     }),
 
     verify: flags.boolean({
-      char: 'v',
       description: 'Pause verify'
     }),
 

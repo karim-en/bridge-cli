@@ -1,7 +1,7 @@
 import PauseErc20Locker from '../../pause/eth/erc20-locker';
 
 export default class Unpause extends PauseErc20Locker {
-  static description = 'Unpause erc20 locker';
+  static description = 'Unpause ERC20-Locker on Ethereum';
 
   static flags = {
     ...PauseErc20Locker.flags

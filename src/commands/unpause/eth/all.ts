@@ -1,7 +1,8 @@
 import PauseAll from '../../pause/eth/all';
 
 export default class Unpause extends PauseAll {
-  static description = 'Unpause all eth contracts';
+  static description =
+    'Unpause all Bridge contracts on Ethereum: NearOnEthereum client, NearProver, ERC20Locker, EthCustodian';
 
   static flags = {
     ...PauseAll.flags

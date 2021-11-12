@@ -1,7 +1,7 @@
 import PauseClient from '../../pause/eth/client';
 
 export default class Unpause extends PauseClient {
-  static description = 'Unpause Near on Eth client';
+  static description = 'Unpause NEAR light-client on Ethereum';
 
   static flags = {
     ...PauseClient.flags

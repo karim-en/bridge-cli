@@ -4,7 +4,7 @@ import { EthAdminControlled } from '../../../emergency-utils/eth-admin-controlle
 import { ERC20LockerPausedStatus } from '../../../emergency-utils/eth-admin-controlled-status';
 
 export default class PauseErc20Locker extends BridgeCommand {
-  static description = 'Pause erc20 locker';
+  static description = 'Pause ERC20-Locker on Ethereum';
 
   static flags = {
     ...BridgeCommand.flags,
@@ -15,12 +15,10 @@ export default class PauseErc20Locker extends BridgeCommand {
     }),
 
     lock: flags.boolean({
-      char: 'l',
       description: 'Pause lock'
     }),
 
-    verify: flags.boolean({
-      char: 'u',
+    unlock: flags.boolean({
       description: 'Pause unlock'
     }),
 

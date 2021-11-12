@@ -4,7 +4,7 @@ import { NearAdminControlled } from '../../../emergency-utils/near-admin-control
 import { FactoryPausedStatus } from '../../../emergency-utils/near-admin-controlled-status';
 
 export default class PauseFactory extends BridgeCommand {
-  static description = 'Pause factory';
+  static description = 'Pause token factory on Near';
 
   static flags = {
     ...BridgeCommand.flags,
@@ -15,12 +15,10 @@ export default class PauseFactory extends BridgeCommand {
     }),
 
     deploy: flags.boolean({
-      char: 't',
       description: 'Pause deploy token'
     }),
 
     deposit: flags.boolean({
-      char: 'd',
       description: 'Pause deposits'
     }),
 

@@ -9,7 +9,8 @@ import {
 import { EthAdminControlled } from '../../../emergency-utils/eth-admin-controlled';
 
 export default class PauseAll extends BridgeCommand {
-  static description = 'Pause all near contracts';
+  static description =
+    'Pause all Bridge contracts on Ethereum: NearOnEthereum client, NearProver, ERC20Locker, EthCustodian';
 
   static flags = {
     ...BridgeCommand.flags

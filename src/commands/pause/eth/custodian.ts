@@ -4,7 +4,7 @@ import { EthAdminControlled } from '../../../emergency-utils/eth-admin-controlle
 import { EthCustodianPausedStatus } from '../../../emergency-utils/eth-admin-controlled-status';
 
 export default class PauseCustodian extends BridgeCommand {
-  static description = 'Pause Near on Eth client';
+  static description = 'Pause Custodian on Ethereum';
 
   static flags = {
     ...BridgeCommand.flags,

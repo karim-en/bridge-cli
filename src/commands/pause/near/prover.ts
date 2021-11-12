@@ -4,7 +4,7 @@ import { NearAdminControlled } from '../../../emergency-utils/near-admin-control
 import { NearProverPausedStatus } from '../../../emergency-utils/near-admin-controlled-status';
 
 export default class PauseProver extends BridgeCommand {
-  static description = 'Pause eth prover on NEAR';
+  static description = 'Pause Ethereum prover on NEAR';
 
   static flags = {
     ...BridgeCommand.flags,
@@ -14,8 +14,7 @@ export default class PauseProver extends BridgeCommand {
       description: 'Show the current paused status of the contract.'
     }),
 
-    addBlockHeader: flags.boolean({
-      char: 'b',
+    verify: flags.boolean({
       description: 'Pause verify'
     }),
 
@@ -40,7 +39,7 @@ export default class PauseProver extends BridgeCommand {
       return;
     }
 
-    if (this.flags.addBlockHeader) {
+    if (this.flags.verify) {
       status.verify = isPause;
     }
 

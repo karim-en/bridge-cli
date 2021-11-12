@@ -1,7 +1,7 @@
 import PauseProver from '../../pause/near/prover';
 
 export default class Unpause extends PauseProver {
-  static description = 'Unpause eth prover on NEAR';
+  static description = 'Unpause Ethereum prover on NEAR';
 
   static flags = {
     ...PauseProver.flags

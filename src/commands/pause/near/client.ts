@@ -4,7 +4,7 @@ import { NearAdminControlled } from '../../../emergency-utils/near-admin-control
 import { NearClientPausedStatus } from '../../../emergency-utils/near-admin-controlled-status';
 
 export default class PauseClient extends BridgeCommand {
-  static description = 'Pause eth client on NEAR';
+  static description = 'Pause Ethereum client on NEAR';
 
   static flags = {
     ...BridgeCommand.flags,
@@ -15,7 +15,6 @@ export default class PauseClient extends BridgeCommand {
     }),
 
     addBlockHeader: flags.boolean({
-      char: 'h',
       description: 'Pause add block header'
     }),
 
