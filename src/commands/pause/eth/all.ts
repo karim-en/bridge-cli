@@ -3,7 +3,8 @@ import {
   EthClientPausedStatus,
   EthProverPausedStatus,
   ERC20LockerPausedStatus,
-  IPausedStatus
+  IPausedStatus,
+  EthCustodianPausedStatus
 } from '../../../emergency-utils/eth-admin-controlled-status';
 import { EthAdminControlled } from '../../../emergency-utils/eth-admin-controlled';
 
@@ -46,6 +47,11 @@ export default class PauseAll extends BridgeCommand {
       isPause,
       this.conf.contracts.ethereum.prover,
       new EthProverPausedStatus(0)
+    );
+    await this.pauseAll(
+      isPause,
+      this.conf.contracts.ethereum.custodian,
+      new EthCustodianPausedStatus(0)
     );
   }
 }

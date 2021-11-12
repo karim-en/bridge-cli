@@ -87,6 +87,11 @@ export class ethereum4 extends BaseConfig {
     this.has('erc20_locker', 'string');
     return this.config.erc20_locker;
   }
+
+  get custodian(): string {
+    this.has('custodian', 'string');
+    return this.config.custodian;
+  }
 }
 export class near5 extends BaseConfig {
   get client(): string {

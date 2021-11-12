@@ -29,6 +29,8 @@ contracts:
         prover: "0xb3df48b0ea3e91b43226fb3c5eb335b7e3d76faa"
         # Erc20 locker
         erc20_locker: "0xc115851ca60aed2ccc6ee3d5343f590834e4a3ab"
+        # EthCustodian
+        custodian: "0x84a82Bb39c83989D5Dc07e1310281923D2544dC2"
 
     near:
         # Ethereum Light Client implementation in NEAR

@@ -76,3 +76,31 @@ export class ERC20LockerPausedStatus implements IPausedStatus {
     this.unlock = pause;
   }
 }
+
+export class EthCustodianPausedStatus implements IPausedStatus {
+  depositToEvm: boolean;
+
+  depositToNear: boolean;
+
+  withdraw: boolean;
+
+  constructor(mask: number) {
+    this.depositToEvm = (mask & 1) !== 0;
+    this.depositToNear = (mask & 2) !== 0;
+    this.withdraw = (mask & 4) !== 0;
+  }
+
+  toMask(): number {
+    return (
+      Number(this.depositToEvm) |
+      (Number(this.depositToNear) << 1) |
+      (Number(this.withdraw) << 2)
+    );
+  }
+
+  pauseAll(pause: boolean): void {
+    this.depositToEvm = pause;
+    this.depositToNear = pause;
+    this.withdraw = pause;
+  }
+}

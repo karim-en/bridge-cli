@@ -43,6 +43,7 @@ USAGE
 * [`bridge monitor`](#bridge-monitor)
 * [`bridge pause:eth:all`](#bridge-pauseethall)
 * [`bridge pause:eth:client`](#bridge-pauseethclient)
+* [`bridge pause:eth:custodian`](#bridge-pauseethcustodian)
 * [`bridge pause:eth:erc20-locker`](#bridge-pauseetherc20-locker)
 * [`bridge pause:eth:prover`](#bridge-pauseethprover)
 * [`bridge pause:near:all`](#bridge-pausenearall)
@@ -58,6 +59,7 @@ USAGE
 * [`bridge tools:migrate-icons TOKENS CONTRACT`](#bridge-toolsmigrate-icons-tokens-contract)
 * [`bridge unpause:eth:all`](#bridge-unpauseethall)
 * [`bridge unpause:eth:client`](#bridge-unpauseethclient)
+* [`bridge unpause:eth:custodian`](#bridge-unpauseethcustodian)
 * [`bridge unpause:eth:erc20-locker`](#bridge-unpauseetherc20-locker)
 * [`bridge unpause:eth:prover`](#bridge-unpauseethprover)
 * [`bridge unpause:near:all`](#bridge-unpausenearall)
@@ -236,6 +238,25 @@ OPTIONS
 ```
 
 _See code: [src/commands/pause/eth/client.ts](https://github.com/aurora-is-near/bridge-cli/blob/v0.0.10/src/commands/pause/eth/client.ts)_
+
+## `bridge pause:eth:custodian`
+
+Pause Near on Eth client
+
+```
+USAGE
+  $ bridge pause eth custodian
+
+OPTIONS
+  -a, --all        Pause all actions
+  -h, --help       show CLI help
+  -s, --status     Show the current paused status of the contract.
+  --depositToEvm   Pause deposit to EVM
+  --depositToNear  Pause deposit to NEAR
+  --withdraw       Pause withdraw
+```
+
+_See code: [src/commands/pause/eth/custodian.ts](https://github.com/aurora-is-near/bridge-cli/blob/v0.0.10/src/commands/pause/eth/custodian.ts)_
 
 ## `bridge pause:eth:erc20-locker`
 
@@ -483,6 +504,25 @@ OPTIONS
 ```
 
 _See code: [src/commands/unpause/eth/client.ts](https://github.com/aurora-is-near/bridge-cli/blob/v0.0.10/src/commands/unpause/eth/client.ts)_
+
+## `bridge unpause:eth:custodian`
+
+Unpause Custodian on Ethereum
+
+```
+USAGE
+  $ bridge unpause eth custodian
+
+OPTIONS
+  -a, --all        Pause all actions
+  -h, --help       show CLI help
+  -s, --status     Show the current paused status of the contract.
+  --depositToEvm   Pause deposit to EVM
+  --depositToNear  Pause deposit to NEAR
+  --withdraw       Pause withdraw
+```
+
+_See code: [src/commands/unpause/eth/custodian.ts](https://github.com/aurora-is-near/bridge-cli/blob/v0.0.10/src/commands/unpause/eth/custodian.ts)_
 
 ## `bridge unpause:eth:erc20-locker`
 
