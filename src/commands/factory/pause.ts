@@ -12,7 +12,7 @@ export default class Pause extends BridgeCommand {
 
     status: flags.boolean({
       char: 's',
-      description: 'Show the current paused status of the contract.'
+      description: 'Show the current paused status of the contract'
     }),
 
     deploy: flags.boolean({

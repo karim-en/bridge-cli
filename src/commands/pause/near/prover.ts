@@ -11,7 +11,7 @@ export default class PauseProver extends BridgeCommand {
 
     status: flags.boolean({
       char: 's',
-      description: 'Show the current paused status of the contract.'
+      description: 'Show the current paused status of the contract'
     }),
 
     verify: flags.boolean({
