@@ -46,10 +46,12 @@ USAGE
 * [`bridge pause:eth:custodian`](#bridge-pauseethcustodian)
 * [`bridge pause:eth:erc20-locker`](#bridge-pauseetherc20-locker)
 * [`bridge pause:eth:prover`](#bridge-pauseethprover)
+* [`bridge pause:eth:status`](#bridge-pauseethstatus)
 * [`bridge pause:near:all`](#bridge-pausenearall)
 * [`bridge pause:near:client`](#bridge-pausenearclient)
 * [`bridge pause:near:factory`](#bridge-pausenearfactory)
 * [`bridge pause:near:prover`](#bridge-pausenearprover)
+* [`bridge pause:near:status`](#bridge-pausenearstatus)
 * [`bridge tokens:list`](#bridge-tokenslist)
 * [`bridge tokens:metadata TOKENADDRESS`](#bridge-tokensmetadata-tokenaddress)
 * [`bridge tokens:set_icon TOKENS`](#bridge-tokensset_icon-tokens)
@@ -206,7 +208,7 @@ _See code: [src/commands/monitor.ts](https://github.com/aurora-is-near/bridge-cl
 
 ## `bridge pause:eth:all`
 
-Pause all near contracts
+Pause all Bridge contracts on Ethereum: NearOnEthereum client, NearProver, ERC20Locker, EthCustodian
 
 ```
 USAGE
@@ -220,28 +222,28 @@ _See code: [src/commands/pause/eth/all.ts](https://github.com/aurora-is-near/bri
 
 ## `bridge pause:eth:client`
 
-Pause Near on Eth client
+Pause NEAR light-client on Ethereum
 
 ```
 USAGE
   $ bridge pause eth client
 
 OPTIONS
-  -a, --all        Pause all actions
-  -b, --addBlock   Pause addBlock
-  -c, --challenge  Pause challenge
-  -d, --deposit    Pause deposit
-  -h, --help       show CLI help
-  -s, --status     Show the current paused status of the contract.
-  -v, --verify     Pause verify
-  -w, --withdraw   Pause withdraw
+  -a, --all     Pause all actions
+  -h, --help    show CLI help
+  -s, --status  Show the current paused status of the contract.
+  --addBlock    Pause addBlock
+  --challenge   Pause challenge
+  --deposit     Pause deposit
+  --verify      Pause verify
+  --withdraw    Pause withdraw
 ```
 
 _See code: [src/commands/pause/eth/client.ts](https://github.com/aurora-is-near/bridge-cli/blob/v0.0.10/src/commands/pause/eth/client.ts)_
 
 ## `bridge pause:eth:custodian`
 
-Pause Near on Eth client
+Pause Custodian on Ethereum
 
 ```
 USAGE
@@ -260,7 +262,7 @@ _See code: [src/commands/pause/eth/custodian.ts](https://github.com/aurora-is-ne
 
 ## `bridge pause:eth:erc20-locker`
 
-Pause erc20 locker
+Pause ERC20-Locker on Ethereum
 
 ```
 USAGE
@@ -269,16 +271,16 @@ USAGE
 OPTIONS
   -a, --all     Pause all actions
   -h, --help    show CLI help
-  -l, --lock    Pause lock
   -s, --status  Show the current paused status of the contract.
-  -u, --verify  Pause unlock
+  --lock        Pause lock
+  --unlock      Pause unlock
 ```
 
 _See code: [src/commands/pause/eth/erc20-locker.ts](https://github.com/aurora-is-near/bridge-cli/blob/v0.0.10/src/commands/pause/eth/erc20-locker.ts)_
 
 ## `bridge pause:eth:prover`
 
-Pause prover on Eth
+Pause prover on Ethereum
 
 ```
 USAGE
@@ -288,14 +290,28 @@ OPTIONS
   -a, --all     Pause all actions
   -h, --help    show CLI help
   -s, --status  Show the current paused status of the contract.
-  -v, --verify  Pause verify
+  --verify      Pause verify
 ```
 
 _See code: [src/commands/pause/eth/prover.ts](https://github.com/aurora-is-near/bridge-cli/blob/v0.0.10/src/commands/pause/eth/prover.ts)_
 
+## `bridge pause:eth:status`
+
+Show pause status for all Bridge contracts on Ethereum: NearOnEthereum client, NearProver, ERC20Locker, EthCustodian
+
+```
+USAGE
+  $ bridge pause eth status
+
+OPTIONS
+  -h, --help  show CLI help
+```
+
+_See code: [src/commands/pause/eth/status.ts](https://github.com/aurora-is-near/bridge-cli/blob/v0.0.10/src/commands/pause/eth/status.ts)_
+
 ## `bridge pause:near:all`
 
-Pause all near contracts
+Pause all Bridge contracts on Near: EthereumOnNear client, EthProver, NearTokenFactory
 
 ```
 USAGE
@@ -309,55 +325,69 @@ _See code: [src/commands/pause/near/all.ts](https://github.com/aurora-is-near/br
 
 ## `bridge pause:near:client`
 
-Pause eth client on NEAR
+Pause Ethereum client on NEAR
 
 ```
 USAGE
   $ bridge pause near client
 
 OPTIONS
-  -a, --all             Pause all actions
-  -h, --addBlockHeader  Pause add block header
-  -h, --help            show CLI help
-  -s, --status          Show the current paused status of the contract.
+  -a, --all         Pause all actions
+  -h, --help        show CLI help
+  -s, --status      Show the current paused status of the contract.
+  --addBlockHeader  Pause add block header
 ```
 
 _See code: [src/commands/pause/near/client.ts](https://github.com/aurora-is-near/bridge-cli/blob/v0.0.10/src/commands/pause/near/client.ts)_
 
 ## `bridge pause:near:factory`
 
-Pause factory
+Pause token factory on Near
 
 ```
 USAGE
   $ bridge pause near factory
 
 OPTIONS
-  -a, --all      Pause all actions
-  -d, --deposit  Pause deposits
-  -h, --help     show CLI help
-  -s, --status   Show the current paused status of the contract.
-  -t, --deploy   Pause deploy token
+  -a, --all     Pause all actions
+  -h, --help    show CLI help
+  -s, --status  Show the current paused status of the contract.
+  --deploy      Pause deploy token
+  --deposit     Pause deposits
 ```
 
 _See code: [src/commands/pause/near/factory.ts](https://github.com/aurora-is-near/bridge-cli/blob/v0.0.10/src/commands/pause/near/factory.ts)_
 
 ## `bridge pause:near:prover`
 
-Pause eth prover on NEAR
+Pause Ethereum prover on NEAR
 
 ```
 USAGE
   $ bridge pause near prover
 
 OPTIONS
-  -a, --all             Pause all actions
-  -b, --addBlockHeader  Pause verify
-  -h, --help            show CLI help
-  -s, --status          Show the current paused status of the contract.
+  -a, --all     Pause all actions
+  -h, --help    show CLI help
+  -s, --status  Show the current paused status of the contract.
+  --verify      Pause verify
 ```
 
 _See code: [src/commands/pause/near/prover.ts](https://github.com/aurora-is-near/bridge-cli/blob/v0.0.10/src/commands/pause/near/prover.ts)_
+
+## `bridge pause:near:status`
+
+Show pause status for all Bridge contracts on Near: EthereumOnNear client, EthProver, NearTokenFactory
+
+```
+USAGE
+  $ bridge pause near status
+
+OPTIONS
+  -h, --help  show CLI help
+```
+
+_See code: [src/commands/pause/near/status.ts](https://github.com/aurora-is-near/bridge-cli/blob/v0.0.10/src/commands/pause/near/status.ts)_
 
 ## `bridge tokens:list`
 
@@ -472,7 +502,7 @@ _See code: [src/commands/tools/migrate-icons.ts](https://github.com/aurora-is-ne
 
 ## `bridge unpause:eth:all`
 
-Unpause all eth contracts
+Unpause all Bridge contracts on Ethereum: NearOnEthereum client, NearProver, ERC20Locker, EthCustodian
 
 ```
 USAGE
@@ -486,21 +516,21 @@ _See code: [src/commands/unpause/eth/all.ts](https://github.com/aurora-is-near/b
 
 ## `bridge unpause:eth:client`
 
-Unpause Near on Eth client
+Unpause NEAR light-client on Ethereum
 
 ```
 USAGE
   $ bridge unpause eth client
 
 OPTIONS
-  -a, --all        Pause all actions
-  -b, --addBlock   Pause addBlock
-  -c, --challenge  Pause challenge
-  -d, --deposit    Pause deposit
-  -h, --help       show CLI help
-  -s, --status     Show the current paused status of the contract.
-  -v, --verify     Pause verify
-  -w, --withdraw   Pause withdraw
+  -a, --all     Pause all actions
+  -h, --help    show CLI help
+  -s, --status  Show the current paused status of the contract.
+  --addBlock    Pause addBlock
+  --challenge   Pause challenge
+  --deposit     Pause deposit
+  --verify      Pause verify
+  --withdraw    Pause withdraw
 ```
 
 _See code: [src/commands/unpause/eth/client.ts](https://github.com/aurora-is-near/bridge-cli/blob/v0.0.10/src/commands/unpause/eth/client.ts)_
@@ -526,7 +556,7 @@ _See code: [src/commands/unpause/eth/custodian.ts](https://github.com/aurora-is-
 
 ## `bridge unpause:eth:erc20-locker`
 
-Unpause erc20 locker
+Unpause ERC20-Locker on Ethereum
 
 ```
 USAGE
@@ -535,16 +565,16 @@ USAGE
 OPTIONS
   -a, --all     Pause all actions
   -h, --help    show CLI help
-  -l, --lock    Pause lock
   -s, --status  Show the current paused status of the contract.
-  -u, --verify  Pause unlock
+  --lock        Pause lock
+  --unlock      Pause unlock
 ```
 
 _See code: [src/commands/unpause/eth/erc20-locker.ts](https://github.com/aurora-is-near/bridge-cli/blob/v0.0.10/src/commands/unpause/eth/erc20-locker.ts)_
 
 ## `bridge unpause:eth:prover`
 
-Unpause prover on Eth
+Unpause prover on Ethereum
 
 ```
 USAGE
@@ -554,14 +584,14 @@ OPTIONS
   -a, --all     Pause all actions
   -h, --help    show CLI help
   -s, --status  Show the current paused status of the contract.
-  -v, --verify  Pause verify
+  --verify      Pause verify
 ```
 
 _See code: [src/commands/unpause/eth/prover.ts](https://github.com/aurora-is-near/bridge-cli/blob/v0.0.10/src/commands/unpause/eth/prover.ts)_
 
 ## `bridge unpause:near:all`
 
-Unpause all near contracts
+Unpause all Bridge contracts on Near: EthereumOnNear client, EthProver, NearTokenFactory
 
 ```
 USAGE
@@ -575,52 +605,52 @@ _See code: [src/commands/unpause/near/all.ts](https://github.com/aurora-is-near/
 
 ## `bridge unpause:near:client`
 
-Unpause eth client on NEAR
+Unpause Ethereum client on NEAR
 
 ```
 USAGE
   $ bridge unpause near client
 
 OPTIONS
-  -a, --all             Pause all actions
-  -h, --addBlockHeader  Pause add block header
-  -h, --help            show CLI help
-  -s, --status          Show the current paused status of the contract.
+  -a, --all         Pause all actions
+  -h, --help        show CLI help
+  -s, --status      Show the current paused status of the contract.
+  --addBlockHeader  Pause add block header
 ```
 
 _See code: [src/commands/unpause/near/client.ts](https://github.com/aurora-is-near/bridge-cli/blob/v0.0.10/src/commands/unpause/near/client.ts)_
 
 ## `bridge unpause:near:factory`
 
-Unpause factory
+Unpause token factory on Near
 
 ```
 USAGE
   $ bridge unpause near factory
 
 OPTIONS
-  -a, --all      Pause all actions
-  -d, --deposit  Pause deposits
-  -h, --help     show CLI help
-  -s, --status   Show the current paused status of the contract.
-  -t, --deploy   Pause deploy token
+  -a, --all     Pause all actions
+  -h, --help    show CLI help
+  -s, --status  Show the current paused status of the contract.
+  --deploy      Pause deploy token
+  --deposit     Pause deposits
 ```
 
 _See code: [src/commands/unpause/near/factory.ts](https://github.com/aurora-is-near/bridge-cli/blob/v0.0.10/src/commands/unpause/near/factory.ts)_
 
 ## `bridge unpause:near:prover`
 
-Unpause eth prover on NEAR
+Unpause Ethereum prover on NEAR
 
 ```
 USAGE
   $ bridge unpause near prover
 
 OPTIONS
-  -a, --all             Pause all actions
-  -b, --addBlockHeader  Pause verify
-  -h, --help            show CLI help
-  -s, --status          Show the current paused status of the contract.
+  -a, --all     Pause all actions
+  -h, --help    show CLI help
+  -s, --status  Show the current paused status of the contract.
+  --verify      Pause verify
 ```
 
 _See code: [src/commands/unpause/near/prover.ts](https://github.com/aurora-is-near/bridge-cli/blob/v0.0.10/src/commands/unpause/near/prover.ts)_
