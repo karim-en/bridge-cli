@@ -54,3 +54,19 @@ export class NearProverPausedStatus implements IPausedStatus {
     this.verify = pause;
   }
 }
+
+export class NearFactoryTokenPausedStatus implements IPausedStatus {
+  withdraw: boolean;
+
+  constructor(mask: number) {
+    this.withdraw = (mask & 1) !== 0;
+  }
+
+  toMask(): number {
+    return Number(this.withdraw);
+  }
+
+  pauseAll(pause: boolean): void {
+    this.withdraw = pause;
+  }
+}

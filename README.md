@@ -50,6 +50,7 @@ USAGE
 * [`bridge pause:near:all`](#bridge-pausenearall)
 * [`bridge pause:near:client`](#bridge-pausenearclient)
 * [`bridge pause:near:factory`](#bridge-pausenearfactory)
+* [`bridge pause:near:factory-token`](#bridge-pausenearfactory-token)
 * [`bridge pause:near:prover`](#bridge-pausenearprover)
 * [`bridge pause:near:status`](#bridge-pausenearstatus)
 * [`bridge tokens:list`](#bridge-tokenslist)
@@ -67,6 +68,7 @@ USAGE
 * [`bridge unpause:near:all`](#bridge-unpausenearall)
 * [`bridge unpause:near:client`](#bridge-unpausenearclient)
 * [`bridge unpause:near:factory`](#bridge-unpausenearfactory)
+* [`bridge unpause:near:factory-token`](#bridge-unpausenearfactory-token)
 * [`bridge unpause:near:prover`](#bridge-unpausenearprover)
 * [`bridge use BRIDGE_ID`](#bridge-use-bridge_id)
 
@@ -358,6 +360,24 @@ OPTIONS
 
 _See code: [src/commands/pause/near/factory.ts](https://github.com/aurora-is-near/bridge-cli/blob/v0.0.10/src/commands/pause/near/factory.ts)_
 
+## `bridge pause:near:factory-token`
+
+Pause bridge factory token on NEAR
+
+```
+USAGE
+  $ bridge pause near factory-token
+
+OPTIONS
+  -a, --all      Pause all actions
+  -h, --help     show CLI help
+  -s, --status   Show the current paused status of the contract
+  --token=token  (required) *.factory.near | all
+  --withdraw     Pause withdraw
+```
+
+_See code: [src/commands/pause/near/factory-token.ts](https://github.com/aurora-is-near/bridge-cli/blob/v0.0.10/src/commands/pause/near/factory-token.ts)_
+
 ## `bridge pause:near:prover`
 
 Pause Ethereum prover on NEAR
@@ -637,6 +657,24 @@ OPTIONS
 ```
 
 _See code: [src/commands/unpause/near/factory.ts](https://github.com/aurora-is-near/bridge-cli/blob/v0.0.10/src/commands/unpause/near/factory.ts)_
+
+## `bridge unpause:near:factory-token`
+
+Unpause bridge factory token on NEAR
+
+```
+USAGE
+  $ bridge unpause near factory-token
+
+OPTIONS
+  -a, --all      Pause all actions
+  -h, --help     show CLI help
+  -s, --status   Show the current paused status of the contract
+  --token=token  (required) *.factory.near | all
+  --withdraw     Pause withdraw
+```
+
+_See code: [src/commands/unpause/near/factory-token.ts](https://github.com/aurora-is-near/bridge-cli/blob/v0.0.10/src/commands/unpause/near/factory-token.ts)_
 
 ## `bridge unpause:near:prover`
 
