@@ -137,7 +137,7 @@ USAGE
 OPTIONS
   -d, --deposit  Pause deposits
   -h, --help     show CLI help
-  -s, --status   Show the current paused status of the contract.
+  -s, --status   Show the current paused status of the contract
   -t, --deploy   Pause deploy token
 ```
 
@@ -154,7 +154,7 @@ USAGE
 OPTIONS
   -d, --deposit  Pause deposits
   -h, --help     show CLI help
-  -s, --status   Show the current paused status of the contract.
+  -s, --status   Show the current paused status of the contract
   -t, --deploy   Pause deploy token
 ```
 
@@ -231,7 +231,7 @@ USAGE
 OPTIONS
   -a, --all     Pause all actions
   -h, --help    show CLI help
-  -s, --status  Show the current paused status of the contract.
+  -s, --status  Show the current paused status of the contract
   --addBlock    Pause addBlock
   --challenge   Pause challenge
   --deposit     Pause deposit
@@ -252,7 +252,7 @@ USAGE
 OPTIONS
   -a, --all        Pause all actions
   -h, --help       show CLI help
-  -s, --status     Show the current paused status of the contract.
+  -s, --status     Show the current paused status of the contract
   --depositToEvm   Pause deposit to EVM
   --depositToNear  Pause deposit to NEAR
   --withdraw       Pause withdraw
@@ -271,7 +271,7 @@ USAGE
 OPTIONS
   -a, --all     Pause all actions
   -h, --help    show CLI help
-  -s, --status  Show the current paused status of the contract.
+  -s, --status  Show the current paused status of the contract
   --lock        Pause lock
   --unlock      Pause unlock
 ```
@@ -280,7 +280,7 @@ _See code: [src/commands/pause/eth/erc20-locker.ts](https://github.com/aurora-is
 
 ## `bridge pause:eth:prover`
 
-Pause prover on Ethereum
+Pause NEAR Prover on Ethereum
 
 ```
 USAGE
@@ -289,7 +289,7 @@ USAGE
 OPTIONS
   -a, --all     Pause all actions
   -h, --help    show CLI help
-  -s, --status  Show the current paused status of the contract.
+  -s, --status  Show the current paused status of the contract
   --verify      Pause verify
 ```
 
@@ -325,7 +325,7 @@ _See code: [src/commands/pause/near/all.ts](https://github.com/aurora-is-near/br
 
 ## `bridge pause:near:client`
 
-Pause Ethereum client on NEAR
+Pause Ethereum light-client on NEAR
 
 ```
 USAGE
@@ -334,7 +334,7 @@ USAGE
 OPTIONS
   -a, --all         Pause all actions
   -h, --help        show CLI help
-  -s, --status      Show the current paused status of the contract.
+  -s, --status      Show the current paused status of the contract
   --addBlockHeader  Pause add block header
 ```
 
@@ -342,7 +342,7 @@ _See code: [src/commands/pause/near/client.ts](https://github.com/aurora-is-near
 
 ## `bridge pause:near:factory`
 
-Pause token factory on Near
+Pause ERC-20 Token factory on NEAR
 
 ```
 USAGE
@@ -351,9 +351,9 @@ USAGE
 OPTIONS
   -a, --all     Pause all actions
   -h, --help    show CLI help
-  -s, --status  Show the current paused status of the contract.
-  --deploy      Pause deploy token
-  --deposit     Pause deposits
+  -s, --status  Show the current paused status of the contract
+  --deploy      Pause deploy of new tokens
+  --deposit     Pause deposit
 ```
 
 _See code: [src/commands/pause/near/factory.ts](https://github.com/aurora-is-near/bridge-cli/blob/v0.0.10/src/commands/pause/near/factory.ts)_
@@ -369,7 +369,7 @@ USAGE
 OPTIONS
   -a, --all     Pause all actions
   -h, --help    show CLI help
-  -s, --status  Show the current paused status of the contract.
+  -s, --status  Show the current paused status of the contract
   --verify      Pause verify
 ```
 
@@ -525,7 +525,7 @@ USAGE
 OPTIONS
   -a, --all     Pause all actions
   -h, --help    show CLI help
-  -s, --status  Show the current paused status of the contract.
+  -s, --status  Show the current paused status of the contract
   --addBlock    Pause addBlock
   --challenge   Pause challenge
   --deposit     Pause deposit
@@ -546,7 +546,7 @@ USAGE
 OPTIONS
   -a, --all        Pause all actions
   -h, --help       show CLI help
-  -s, --status     Show the current paused status of the contract.
+  -s, --status     Show the current paused status of the contract
   --depositToEvm   Pause deposit to EVM
   --depositToNear  Pause deposit to NEAR
   --withdraw       Pause withdraw
@@ -565,7 +565,7 @@ USAGE
 OPTIONS
   -a, --all     Pause all actions
   -h, --help    show CLI help
-  -s, --status  Show the current paused status of the contract.
+  -s, --status  Show the current paused status of the contract
   --lock        Pause lock
   --unlock      Pause unlock
 ```
@@ -583,7 +583,7 @@ USAGE
 OPTIONS
   -a, --all     Pause all actions
   -h, --help    show CLI help
-  -s, --status  Show the current paused status of the contract.
+  -s, --status  Show the current paused status of the contract
   --verify      Pause verify
 ```
 
@@ -614,7 +614,7 @@ USAGE
 OPTIONS
   -a, --all         Pause all actions
   -h, --help        show CLI help
-  -s, --status      Show the current paused status of the contract.
+  -s, --status      Show the current paused status of the contract
   --addBlockHeader  Pause add block header
 ```
 
@@ -631,9 +631,9 @@ USAGE
 OPTIONS
   -a, --all     Pause all actions
   -h, --help    show CLI help
-  -s, --status  Show the current paused status of the contract.
-  --deploy      Pause deploy token
-  --deposit     Pause deposits
+  -s, --status  Show the current paused status of the contract
+  --deploy      Pause deploy of new tokens
+  --deposit     Pause deposit
 ```
 
 _See code: [src/commands/unpause/near/factory.ts](https://github.com/aurora-is-near/bridge-cli/blob/v0.0.10/src/commands/unpause/near/factory.ts)_
@@ -649,7 +649,7 @@ USAGE
 OPTIONS
   -a, --all     Pause all actions
   -h, --help    show CLI help
-  -s, --status  Show the current paused status of the contract.
+  -s, --status  Show the current paused status of the contract
   --verify      Pause verify
 ```
 
