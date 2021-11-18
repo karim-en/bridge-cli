@@ -22,11 +22,17 @@ export default class PauseAll extends BridgeCommand {
     address: string,
     status: IPausedStatus
   ): Promise<void> {
-    const near = await this.conf.NEAR;
-    const contract = new NearAdminControlled(await near.account(address));
-    status.pauseAll(isPause);
-    const res = await contract.setPaused(status.toMask());
-    this.logger.info(this.conf.nearExplorer.transaction(res.transaction.hash));
+    try {
+      const near = await this.conf.NEAR;
+      const contract = new NearAdminControlled(await near.account(address));
+      status.pauseAll(isPause);
+      const res = await contract.setPaused(status.toMask());
+      this.logger.info(
+        this.conf.nearExplorer.transaction(res.transaction.hash)
+      );
+    } catch (error) {
+      this.logger.error(error);
+    }
   }
 
   async run(isPause = true): Promise<void> {

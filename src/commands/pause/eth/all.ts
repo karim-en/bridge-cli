@@ -23,14 +23,18 @@ export default class PauseAll extends BridgeCommand {
     address: string,
     status: IPausedStatus
   ): Promise<void> {
-    const contract = await EthAdminControlled.create(
-      address,
-      await this.conf.ethereumSigner()
-    );
-    status.pauseAll(isPause);
-    const tx = await contract.setPaused(status.toMask());
-    await tx.wait();
-    this.logger.info(this.conf.etherscan.transaction(tx.hash));
+    try {
+      const contract = await EthAdminControlled.create(
+        address,
+        await this.conf.ethereumSigner()
+      );
+      status.pauseAll(isPause);
+      const tx = await contract.setPaused(status.toMask());
+      await tx.wait();
+      this.logger.info(this.conf.etherscan.transaction(tx.hash));
+    } catch (error) {
+      this.logger.error(error);
+    }
   }
 
   async run(isPause = true): Promise<void> {
