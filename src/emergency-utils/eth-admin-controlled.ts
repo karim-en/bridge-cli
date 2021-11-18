@@ -1,15 +1,19 @@
 import { ethers } from 'ethers';
-import { TransactionResponse } from '@ethersproject/abstract-provider';
+import {
+  Provider,
+  TransactionResponse
+} from '@ethersproject/abstract-provider';
+import { Signer } from '@ethersproject/abstract-signer';
 
 export class EthAdminControlled {
   private contract: ethers.Contract;
 
   static async create(
     address: string,
-    signer: ethers.Wallet
+    signer?: Signer | Provider
   ): Promise<EthAdminControlled> {
     const abi = [
-      'function paused() public returns (uint value)',
+      'function paused() view returns (uint value)',
       'function adminPause(uint value)'
     ];
 

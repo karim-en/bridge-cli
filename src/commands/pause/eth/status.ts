@@ -20,22 +20,22 @@ export default class Status extends BridgeCommand {
   async run(): Promise<void> {
     const clientContract = await EthAdminControlled.create(
       this.conf.contracts.ethereum.client,
-      await this.conf.ethereumSigner()
+      this.conf.eth
     );
 
     const erc20LockerContract = await EthAdminControlled.create(
       this.conf.contracts.ethereum.erc20Locker,
-      await this.conf.ethereumSigner()
+      this.conf.eth
     );
 
     const proverContract = await EthAdminControlled.create(
       this.conf.contracts.ethereum.prover,
-      await this.conf.ethereumSigner()
+      this.conf.eth
     );
 
     const custodianContract = await EthAdminControlled.create(
       this.conf.contracts.ethereum.custodian,
-      await this.conf.ethereumSigner()
+      this.conf.eth
     );
 
     const clientStatus = new EthClientPausedStatus(
