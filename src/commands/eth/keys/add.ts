@@ -1,5 +1,5 @@
 import { BridgeCommand } from '../../../base';
-import { EthereumKey } from '../../../ethKeyStore';
+import { ethers } from 'ethers';
 
 export default class AddKey extends BridgeCommand {
   static description = 'Add Ethereum Key into the Key Store.';
@@ -20,12 +20,13 @@ export default class AddKey extends BridgeCommand {
       name = this.args.name;
     }
 
-    const key = new EthereumKey(
-      this.args.privateKey,
-      name,
-      this.conf.ethereumNetworkId
-    );
-
-    await this.conf.ethKeyStore.addKey(key);
+    await this.conf.ethKeyStore.addKey({
+      name: name,
+      address: ethers.utils.computeAddress(this.args.privateKey),
+      network: this.conf.ethereumNetworkId,
+      isLedger: false,
+      keyPath: undefined,
+      privateKey: this.args.privateKeyOrPath
+    });
   }
 }

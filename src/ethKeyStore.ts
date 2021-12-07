@@ -1,25 +1,23 @@
 import * as fs from 'fs';
 import { join } from 'path';
-import { ethers } from 'ethers';
 
 // TODO: Move to a separate + more secure project
 
 export class EthereumKey {
-  address: string;
-  privateKey: string;
+  address?: string;
+
+  isLedger?: boolean;
+
+  privateKey?: string;
+
+  keyPath?: string;
+
   name?: string;
+
   network?: string;
 
-  constructor(privateKey: string, name?: string, network?: string) {
-    this.privateKey = privateKey;
-    this.address = ethers.utils.computeAddress(privateKey);
-    this.name = name;
-    this.network = network;
-  }
-
   static async loadFromFile(path: string): Promise<EthereumKey> {
-    const key = JSON.parse((await fs.promises.readFile(path)).toString('utf8'));
-    return new EthereumKey(key.privateKey, key.name, key.network);
+    return JSON.parse((await fs.promises.readFile(path)).toString('utf8'));
   }
 }
 

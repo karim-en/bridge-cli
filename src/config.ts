@@ -1,4 +1,5 @@
 import { ethers } from 'ethers';
+import { LedgerSigner } from '@ethersproject/hardware-wallets';
 import * as nearAPI from 'near-api-js';
 import { homedir } from 'os';
 import GConfig from './config/base';
@@ -120,7 +121,7 @@ export class Config extends GConfig {
     return new EtherscanExplorerURL(url);
   }
 
-  async ethereumSigner(): Promise<ethers.Wallet> {
+  async ethereumSigner(): Promise<ethers.Signer> {
     const key = await this.selectedEthereumKey;
 
     if (key.isNone()) {
@@ -128,7 +129,18 @@ export class Config extends GConfig {
       process.exit(1);
     }
 
-    return new ethers.Wallet(key.unwrap().privateKey, this.eth);
+    const ethKey = key.unwrap();
+
+    if (ethKey.isLedger) {
+      return new LedgerSigner(undefined, undefined, ethKey.keyPath);
+    }
+
+    if (ethKey.privateKey != null) {
+      return new ethers.Wallet(ethKey.privateKey, this.eth);
+    }
+
+    console.log('Invalid ethereum key');
+    process.exit(1);
   }
 
   /// Return NEAR interface
